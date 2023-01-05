@@ -1,16 +1,17 @@
 package services;
 
-import java.sql.Driver;
+import model.Driver;
+
 import java.util.List;
 
 public interface DriverServices {
-    Driver add(Driver driver);
+    model.Driver add(model.Driver driver);
 
-    List<Driver> add(List<Driver> drivers);
+    List<model.Driver> add(List<model.Driver> drivers);
 
-    Driver findById(Long id);
+    model.Driver findById(Long id);
 
-    List<Driver> findByName(String name);
+    List<model.Driver> findByName(String name);
 
     String assignTaxiToDriver(String taxiName, Long driverId);
 

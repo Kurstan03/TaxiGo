@@ -1,11 +1,11 @@
 package dao;
 
-import java.sql.Driver;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
+import model.Driver;
+
+import java.util.*;
 
 public class Database {
-    private HashSet<Driver> drivers = new HashSet<>();
+    private HashSet<model.Driver> drivers = new HashSet<>();
 
     public HashSet<Driver> getDrivers() {
         return drivers;

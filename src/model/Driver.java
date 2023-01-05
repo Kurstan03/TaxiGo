@@ -15,7 +15,7 @@ public class Driver {
     private Taxi taxi;
 
     public Driver(Long id, String name, String surname, Gender gender, String phoneNumber,
-                  License license, BigDecimal money, Taxi taxi) {
+                  License license, BigDecimal money) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -23,7 +23,6 @@ public class Driver {
         this.phoneNumber = phoneNumber;
         this.license = license;
         this.money = money;
-        this.taxi = taxi;
     }
 
     public Long getId() {
