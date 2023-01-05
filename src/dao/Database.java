@@ -11,10 +11,6 @@ public class Database {
     private HashSet<Taxi> taxis = new HashSet<>();
     private HashSet<Client> clients;
 
-    public Database(HashSet<Client> clients) {
-        this.clients = clients;
-    }
-
     public HashSet<Client> getClients() {
         return clients;
     }
