@@ -1,11 +1,21 @@
 package dao;
 
 import model.Driver;
+import model.Taxi;
 
 import java.util.*;
 
 public class Database {
     private HashSet<model.Driver> drivers = new HashSet<>();
+    private HashSet<Taxi> taxis = new HashSet<>();
+
+    public HashSet<Taxi> getTaxis() {
+        return taxis;
+    }
+
+    public void setTaxis(HashSet<Taxi> taxis) {
+        this.taxis = taxis;
+    }
 
     public HashSet<Driver> getDrivers() {
         return drivers;

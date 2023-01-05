@@ -4,7 +4,7 @@ import model.Driver;
 
 import java.util.List;
 
-public interface DriverServices {
+public interface DriverService {
     model.Driver add(model.Driver driver);
 
     List<model.Driver> add(List<model.Driver> drivers);
