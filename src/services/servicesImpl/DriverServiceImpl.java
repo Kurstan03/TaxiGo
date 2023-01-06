@@ -17,12 +17,17 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public model.Driver add(model.Driver driver) {
         model.Driver dr = null;
-        for (model.Driver d : database.getDrivers()) {
-            if (!d.getId().equals(driver.getId())) {
-                dr = driver;
-                database.getDrivers().add(driver);
-            } else {
-                System.out.println("Driver c таким логином уже существует!");
+        if (database.getDrivers().isEmpty()){
+            database.getDrivers().add(driver);
+            dr = driver;
+        } else {
+            for (model.Driver d : database.getDrivers()) {
+                if (!d.getId().equals(driver.getId())) {
+                    dr = driver;
+                    database.getDrivers().add(driver);
+                } else {
+                    System.out.println("Driver c таким логином уже существует!");
+                }
             }
         }
         return dr;
@@ -30,7 +35,19 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public List<model.Driver> add(List<model.Driver> drivers) {
-        database.getDrivers().addAll(drivers);
+        if (database.getDrivers().isEmpty()){
+            database.getDrivers().addAll(drivers);
+        } else {
+            for (Driver driver : drivers) {
+                for (int i = 0; i < database.getDrivers().size(); i++) {
+                    if (!driver.getId().equals(database.getDrivers().stream().toList().get(i).getId())) {
+                        database.getDrivers().add(driver);
+                    } else {
+                        System.out.println("Driver c таким логином уже существует!");
+                    }
+                }
+            }
+        }
         return database.getDrivers().stream().toList();
     }
 
@@ -115,7 +132,9 @@ public class DriverServiceImpl implements DriverService {
                 5.Phone number: %s
                 6.License: %s
                 7.Money: %s
-                _______________________________________""");
+                _______________________________________""",driver.getId(), driver.getName(), driver.getSurname(),
+                driver.getGender().name(), driver.getPhoneNumber(), driver.getLicense(), driver.getMoney());
+        System.out.println();
         int num = new Scanner(System.in).nextInt();
         switch (num){
             case 1:
